@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sunrise Hotel - Book a Room</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Sunrise Hotel</h1>
+    <nav><a href="index.html">Home</a><a href="booking.html">Book a Room</a></nav>
+  </header>
+
+  <main class="container">
+    <h2>Room Booking Form</h2>
+    <form id="bookingForm" action="process_booking.php" method="POST" novalidate>
+
+      <div class="field">
+        <label for="fullName">Full Name</label>
+        <input type="text" id="fullName" name="fullName" placeholder="e.g. Peter Mwangi">
+        <span class="error" id="fullNameError"></span>
+      </div>
+
+      <div class="field">
+        <label for="idNumber">National ID / Passport Number</label>
+        <input type="text" id="idNumber" name="idNumber">
+        <span class="error" id="idNumberError"></span>
+      </div>
+
+      <div class="field">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email">
+        <span class="error" id="emailError"></span>
+      </div>
+
+      <div class="field">
+        <label for="phone">Phone Number (10 digits)</label>
+        <input type="tel" id="phone" name="phone" placeholder="0712345678">
+        <span class="error" id="phoneError"></span>
+      </div>
+
+      <div class="field">
+        <label for="checkIn">Check-in Date</label>
+        <input type="date" id="checkIn" name="checkIn">
+        <span class="error" id="checkInError"></span>
+      </div>
+
+      <div class="field">
+        <label for="nights">Number of Nights (1-14)</label>
+        <input type="number" id="nights" name="nights" value="1">
+        <span class="error" id="nightsError"></span>
+      </div>
+
+      <div class="field">
+        <label for="roomType">Room Type</label>
+        <select id="roomType" name="roomType">
+          <option value="">-- Select room --</option>
+          <option value="single">Single Room - KSh 3,500/night</option>
+          <option value="double">Double Room - KSh 5,000/night</option>
+          <option value="family">Family Room - KSh 7,500/night</option>
+        </select>
+        <span class="info" id="capacityInfo"></span>
+        <span class="error" id="roomTypeError"></span>
+      </div>
+
+      <div class="field">
+        <label for="guests">Number of Guests</label>
+        <input type="number" id="guests" name="guests" value="1">
+        <span class="error" id="guestsError"></span>
+        <div class="warning" id="capacityWarning"></div>
+      </div>
+
+      <div class="field inline">
+        <span class="label">Breakfast (KSh 700 per person per day)</span>
+        <label><input type="radio" name="breakfast" value="yes"> Yes</label>
+        <label><input type="radio" name="breakfast" value="no" checked> No</label>
+      </div>
+
+      <div class="field">
+        <label><input type="checkbox" id="transfer" name="transfer" value="yes"> Airport transfer (KSh 2,000)</label>
+        <div id="transferBox">
+          <label for="arrivalTime">Expected arrival time</label>
+          <input type="text" id="arrivalTime" name="arrivalTime" placeholder="e.g. 14:30, flight KQ100">
+        </div>
+      </div>
+
+      <div class="field">
+        <label><input type="checkbox" id="laundry" name="laundry" value="yes"> Laundry service (KSh 1,000)</label>
+      </div>
+
+      <div id="summary">
+        <h3>Booking Summary</h3>
+        <div id="summaryText">Select a room to see your summary.</div>
+        <p>Estimated Total: <span id="totalDisplay">KSh 0</span></p>
+      </div>
+
+      <button type="submit" class="btn">Submit Booking</button>
+      <button type="reset" class="btn secondary" id="resetBtn">Reset</button>
+    </form>
+  </main>
+  <footer>&copy; Sunrise Hotel - Prototype Booking System</footer>
+  <script src="script.js"></script>
+</body>
+</html>
